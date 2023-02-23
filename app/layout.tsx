@@ -4,6 +4,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  console.log("Layout Komponente");
+
   return (
     <html>
       <head />

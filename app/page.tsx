@@ -1,13 +1,30 @@
-import React from "react";
-import Header from "../components/Header";
+// "use client";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-const hallo = "hallo";
-const hallo2 = "hallo2";
+const HomePage = async () => {
+  // const [products, setProducts] = useState([]);
 
-const HomePage = () => {
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios.get("https://fakestoreapi.com/products");
+  //     setProducts(data);
+  //   };
+  //   getData();
+  // }, []);
+
+  // console.log(products);
+
+  const { data } = await axios.get("https://fakestoreapi.com/products");
+  const products = data;
+
   return (
-    <div className="text-red-500">
-      <Header hallo={hallo} hallo2={hallo2} />
+    <div>
+      {products?.map((product: any) => (
+        <div>
+          {product.title} {product.price}
+        </div>
+      ))}
     </div>
   );
 };
